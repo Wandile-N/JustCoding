@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DIALOG" />
-        <DropdownSelection timestamp="2025-05-19T17:40:01.086401400Z">
+        <DropdownSelection timestamp="2025-05-20T14:09:32.838818100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=089003731H000138" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Wandile\.android\avd\Pixel_8a.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -15,12 +15,12 @@
           <targets>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Wandile\.android\avd\Pixel_8a.avd" />
+                <DeviceId pluginId="PhysicalDevice" identifier="serial=089003731H000138" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="PhysicalDevice" identifier="serial=089003731H000138" />
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Wandile\.android\avd\Pixel_8a.avd" />
               </handle>
             </Target>
           </targets>

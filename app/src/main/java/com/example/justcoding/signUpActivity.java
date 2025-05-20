@@ -21,6 +21,8 @@ import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Collections;
+import java.util.Map;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -146,8 +148,16 @@ public class signUpActivity extends AppCompatActivity {
 
                                 }
                             }
+                            @Override
+                            public Map<String, String> getParams() {
+                                return Collections.emptyMap();
+                            }
                         });
                     }
+                }
+                @Override
+                public Map<String, String> getParams() {
+                    return Collections.emptyMap();
                 }
             });
         }

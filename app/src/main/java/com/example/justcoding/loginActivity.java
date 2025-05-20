@@ -23,6 +23,8 @@ import org.json.JSONObject;
 import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.util.Base64;
+import java.util.Collections;
+import java.util.Map;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -83,6 +85,11 @@ public class loginActivity extends AppCompatActivity {
                     password.setError(log);
                     Toast.makeText(loginActivity.this, log, Toast.LENGTH_LONG).show();
                 }
+
+            }
+            @Override
+            public Map<String, String> getParams() {
+                return Collections.emptyMap();
             }
         });
     }

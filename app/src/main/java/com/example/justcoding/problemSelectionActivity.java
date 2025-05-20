@@ -22,6 +22,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
 
 public class problemSelectionActivity extends AppCompatActivity {
     PHPRequest req;
@@ -115,6 +117,18 @@ public class problemSelectionActivity extends AppCompatActivity {
 
                     req.doRequest(problemSelectionActivity.this, "match", matchCv, new RequestHandler() {
                         @Override
+                        public void processResponse(String response) {
+
+                        }
+
+                        @Override
+                        public Map<String, String> getParams() {
+                            return Collections.emptyMap();
+                        }
+                    });
+
+                    req.doRequest(problemSelectionActivity.this, "match", matchCv, new RequestHandler() {
+                        @Override
                         public void processResponse(String matchResponse) {
                             runOnUiThread(() -> {
                                 try {
@@ -138,6 +152,10 @@ public class problemSelectionActivity extends AppCompatActivity {
                                 finish();
                             });
                         }
+                        @Override
+                        public Map<String, String> getParams() {
+                            return Collections.emptyMap();
+                        }
                     });
 
                 } else {
@@ -147,6 +165,10 @@ public class problemSelectionActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 }
+            }
+            @Override
+            public Map<String, String> getParams() {
+                return Collections.emptyMap();
             }
         });
     }
