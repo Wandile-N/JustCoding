@@ -44,4 +44,7 @@ dependencies {
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation ("com.android.volley:volley:1.2.1")
+    implementation ("io.socket:socket.io-client:2.0.1")
+    testImplementation ("org.json:json:20090211")
 }

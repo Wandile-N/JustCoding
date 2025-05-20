@@ -55,14 +55,25 @@ public class loginActivity extends AppCompatActivity {
         ContentValues cv = new ContentValues();
         user = username.getText().toString();
         pword = password.getText().toString();
+
+        // 🔒 Prevent spamming the login button
+        btnLogin.setEnabled(false);
+
         cv.put("username", user);
         req.doRequest(loginActivity.this, "login", cv, new RequestHandler() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void processResponse(String response) {
                 String log = logIn(response);
+                int userID = getUserID(response);
+
+                // ✅ Re-enable the button no matter what
+                btnLogin.setEnabled(true);
+
                 if(log.equals("Login successful!")){
                     Intent intent = new Intent(loginActivity.this, MainActivity.class);
+                    intent.putExtra("userID", userID);
+                    intent.putExtra("username", user);
                     Toast.makeText(loginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
                     // Don't forget to putExtra (all the account details, except password and salt)
                     startActivity(intent);
@@ -103,6 +114,21 @@ public class loginActivity extends AppCompatActivity {
     public void signUp(View view) {
         Intent i = new Intent(loginActivity.this, signUpActivity.class);
         startActivity(i);
+    }
+
+    public int getUserID(String json){
+        try {
+            JSONArray ja = new JSONArray(json);
+            if (ja.length() > 0) {
+                JSONObject obj = ja.getJSONObject(0);
+                if (obj.has("account_id")) {
+                    return obj.getInt("account_id");
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
 
