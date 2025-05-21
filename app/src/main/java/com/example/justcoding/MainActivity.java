@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, R.layout.chat_list_item, R.id.chatUserName, usernames);
         chatListView.setAdapter(adapter);
 
+        // variables needed from the previous activity:
         userId = getIntent().getIntExtra("userID", -1);
         username = getIntent().getStringExtra("username");
         if (userId == -1) {

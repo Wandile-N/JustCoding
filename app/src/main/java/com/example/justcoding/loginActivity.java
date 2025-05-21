@@ -53,7 +53,10 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void log(View view) {
-        req = new PHPRequest(lampServer);
+        if(!validateInput(username) || !validateInput(password)){
+            return;
+        }
+
         ContentValues cv = new ContentValues();
         user = username.getText().toString();
         pword = password.getText().toString();
@@ -92,6 +95,14 @@ public class loginActivity extends AppCompatActivity {
                 return Collections.emptyMap();
             }
         });
+    }
+
+    public boolean validateInput(EditText field) {
+        if (field.getText().toString().trim().isEmpty()) {
+            field.setError("This field is required!");
+            return false;
+        }
+        return true;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -137,7 +148,6 @@ public class loginActivity extends AppCompatActivity {
         }
         return -1;
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String hashPassword(String password, String salt) throws Exception {

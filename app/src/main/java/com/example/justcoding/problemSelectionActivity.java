@@ -117,18 +117,6 @@ public class problemSelectionActivity extends AppCompatActivity {
 
                     req.doRequest(problemSelectionActivity.this, "match", matchCv, new RequestHandler() {
                         @Override
-                        public void processResponse(String response) {
-
-                        }
-
-                        @Override
-                        public Map<String, String> getParams() {
-                            return Collections.emptyMap();
-                        }
-                    });
-
-                    req.doRequest(problemSelectionActivity.this, "match", matchCv, new RequestHandler() {
-                        @Override
                         public void processResponse(String matchResponse) {
                             runOnUiThread(() -> {
                                 try {
@@ -145,7 +133,7 @@ public class problemSelectionActivity extends AppCompatActivity {
                                     Toast.makeText(problemSelectionActivity.this, "Error processing match response.", Toast.LENGTH_LONG).show();
                                 }
 
-                                // ✅ Always continue to menu
+                                // I NEED TO PASS THE account_id !!!!
                                 Intent i = new Intent(problemSelectionActivity.this, MainActivity.class);
                                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(i);
