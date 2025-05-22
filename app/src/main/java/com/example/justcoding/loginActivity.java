@@ -61,7 +61,7 @@ public class loginActivity extends AppCompatActivity {
         user = username.getText().toString();
         pword = password.getText().toString();
 
-        // 🔒 Prevent spamming the login button
+        // Prevent spamming the login button
         btnLogin.setEnabled(false);
 
         cv.put("username", user);
@@ -72,7 +72,7 @@ public class loginActivity extends AppCompatActivity {
                 String log = logIn(response);
                 int userID = getUserID(response);
 
-                // ✅ Re-enable the button no matter what
+                // Re-enable the button no matter what
                 btnLogin.setEnabled(true);
 
                 if(log.equals("Login successful!")){
